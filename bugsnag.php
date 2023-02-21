@@ -3,7 +3,7 @@
 Plugin Name: Bugsnag Error Monitoring
 Plugin URI: https://bugsnag.com
 Description: Bugsnag monitors for errors and crashes on your wordpress site, sends them to your bugsnag.com dashboard, and notifies you by email of each error.
-Version: 1.6.1
+Version: 1.6.2
 Author: Bugsnag Inc.
 Author URI: https://bugsnag.com
 License: GPLv2 or later
@@ -17,8 +17,8 @@ class Bugsnag_Wordpress
 
     private static $NOTIFIER = array(
         'name' => 'Bugsnag Wordpress (Official)',
-        'version' => '1.6.1',
-        'url' => 'https://bugsnag.com/notifiers/wordpress',
+        'version' => '1.6.2',
+        'url' => 'https://github.com/bugsnag/bugsnag-wordpress',
     );
 
     private $client;
@@ -288,7 +288,10 @@ class Bugsnag_Wordpress
         $this->client->notifyError(
             'BugsnagTest',
             'Testing bugsnag',
-            array('notifier' => self::$NOTIFIER)
+            array(
+                'notifier' => self::$NOTIFIER,
+                'docs' => array('url' => 'https://docs.bugsnag.com/platforms/php/wordpress/'),
+            )
         );
 
         die();
